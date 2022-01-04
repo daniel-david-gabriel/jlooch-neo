@@ -23,7 +23,9 @@
 hs_err_pid*
 
 # Local project files
+build/
 bin/
 lib/
 .project
 .classpath
+.gradle/

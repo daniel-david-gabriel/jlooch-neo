@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+task prep {
+	def f = new File('lib/jsyn_16_7_0.jar')
+	if (!f.exists()) {
+	    new URL('http://www.softsynth.com/jsyn/developers/archives/jsyn_16_7_0.jar').withInputStream{ i -> f.withOutputStream{ it << i }}
+	}
+}
+
+dependencies {
+	compile files('lib/jsyn_16_7_0.jar')   
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jlooch'
+    }
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
