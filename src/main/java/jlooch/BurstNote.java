@@ -4,10 +4,19 @@
  *		Brad Garton	10/2001
  */
 
-import java.util.*;
-import java.awt.*;
-import com.softsynth.jsyn.*;
-import com.softsynth.jsyn.circuits.*;
+import com.softsynth.jsyn.AddUnit;
+import com.softsynth.jsyn.EnvelopePlayer;
+import com.softsynth.jsyn.Filter_BandPass;
+import com.softsynth.jsyn.LineOut;
+import com.softsynth.jsyn.LinearLag;
+import com.softsynth.jsyn.MultiplyUnit;
+import com.softsynth.jsyn.Synth;
+import com.softsynth.jsyn.SynthAlert;
+import com.softsynth.jsyn.SynthCircuit;
+import com.softsynth.jsyn.SynthEnvelope;
+import com.softsynth.jsyn.SynthException;
+import com.softsynth.jsyn.WhiteNoise;
+import com.softsynth.jsyn.circuits.MultiTapDelay;
 
 class Burst extends SynthCircuit
 {

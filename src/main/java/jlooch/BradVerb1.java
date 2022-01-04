@@ -5,10 +5,15 @@
  *  Brad Garton  10/2001
  */
 
-import java.util.*;
-import java.awt.*;
-import com.softsynth.jsyn.*;
-import com.softsynth.jsyn.circuits.*;
+import com.softsynth.jsyn.AddUnit;
+import com.softsynth.jsyn.Filter_LowPass;
+import com.softsynth.jsyn.InterpolatingDelayUnit;
+import com.softsynth.jsyn.MultiplyUnit;
+import com.softsynth.jsyn.SineOscillator;
+import com.softsynth.jsyn.SynthCircuit;
+import com.softsynth.jsyn.SynthInput;
+import com.softsynth.jsyn.SynthOutput;
+import com.softsynth.jsyn.circuits.MultiTapDelay;
 
 class BradVerb1 extends SynthCircuit
 {

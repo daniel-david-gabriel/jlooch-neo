@@ -3,9 +3,8 @@
  * 		Brad Garton, fall 2001
  *
 */
-import java.awt.*;
-import java.lang.*;
-import java.util.Random;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Speckle extends Thread
 {

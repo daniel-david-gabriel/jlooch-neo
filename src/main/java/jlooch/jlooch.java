@@ -3,12 +3,27 @@
  * 		Brad Garton, fall 2001
  *
 */
-import java.util.*;
-import java.awt.*;
-import java.net.*;
-import java.awt.event.*;
 import java.applet.Applet;
-import com.softsynth.jsyn.*;
+import java.awt.Button;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Scrollbar;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import com.softsynth.jsyn.AppletFrame;
+import com.softsynth.jsyn.Synth;
+import com.softsynth.jsyn.SynthAlert;
+import com.softsynth.jsyn.SynthException;
 
 public class jlooch extends Applet implements AdjustmentListener, ActionListener
 {
