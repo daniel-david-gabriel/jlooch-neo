@@ -1,3 +1,4 @@
+package jlooch;
 /* DroneNotes -- notes that drone
  * part of the jlooch app
  *
@@ -199,11 +200,13 @@ class DroneThread extends Thread
 }
 
 
-public class DroneNotes extends Thread
+public class DroneNotes extends Thread implements SoundThread
 {
 	DroneThread drones1;
 	DroneThread drones2;
 	DroneThread drones3;
+	
+	Boolean isRunning = false;
 
 	public void start()  
 	{
@@ -216,6 +219,8 @@ public class DroneNotes extends Thread
 			drones1.start();
 			drones2.start();
 			drones3.start();
+			
+			isRunning = true;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -228,6 +233,8 @@ public class DroneNotes extends Thread
 			drones1.stopSound();
 			drones2.stopSound();
 			drones3.stopSound();
+			
+			isRunning = false;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -238,5 +245,9 @@ public class DroneNotes extends Thread
 		drones1.prob = p;
 		drones2.prob = p;
 		drones3.prob = p;
+	}
+
+	public Boolean isRunning() {
+		return isRunning;
 	}
 }

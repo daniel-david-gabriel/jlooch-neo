@@ -1,3 +1,4 @@
+package jlooch;
 /*  WarbleNote -- makes a warbley note, of course
  *  used in the jlooch app
  *
@@ -297,9 +298,11 @@ class WarbleThread extends Thread
 }
 
 
-public class WarbleNote extends Thread
+public class WarbleNote extends Thread implements SoundThread
 {
 	WarbleThread wnotes1;
+	
+	Boolean isRunning = false;
 
 	public void start()  
 	{
@@ -307,6 +310,8 @@ public class WarbleNote extends Thread
 		{
 			wnotes1 = new WarbleThread();
 			wnotes1.start();
+			
+			isRunning = true;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -317,6 +322,8 @@ public class WarbleNote extends Thread
 		try
 		{
 			wnotes1.stopSound();
+			
+			isRunning = false;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -325,5 +332,9 @@ public class WarbleNote extends Thread
 	public void setProb(double p)
 	{
 		wnotes1.prob = p;
+	}
+
+	public Boolean isRunning() {
+		return isRunning;
 	}
 }

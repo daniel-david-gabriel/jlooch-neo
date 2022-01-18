@@ -1,3 +1,4 @@
+package jlooch;
 /* jlooch -- make them droney sounds once again, using JSyn
  *
  * 		Brad Garton, fall 2001

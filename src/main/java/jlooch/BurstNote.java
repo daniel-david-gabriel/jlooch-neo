@@ -1,3 +1,4 @@
+package jlooch;
 /* BurstNote -- blips of noise + swoopy windish sounds (randomly selected)
  * used in the jlooch app
  *
@@ -210,9 +211,10 @@ class BurstThread extends Thread
 }
 
 
-public class BurstNote extends Thread
+public class BurstNote extends Thread implements SoundThread
 {
 	BurstThread bnotes1;
+	Boolean isRunning = false;
 
 	public void start()  
 	{
@@ -220,6 +222,7 @@ public class BurstNote extends Thread
 	   {
 		bnotes1 = new BurstThread();
 		bnotes1.start();
+		isRunning = true;
 	   } catch(SynthException e) {
 		  SynthAlert.showError(e);
 	   }
@@ -230,6 +233,7 @@ public class BurstNote extends Thread
 		try
 		{
 			bnotes1.stopSound();
+			isRunning = false;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -238,5 +242,9 @@ public class BurstNote extends Thread
 	public void setProb(double p)
 	{
 		bnotes1.prob = p;
+	}
+
+	public Boolean isRunning() {
+		return isRunning;
 	}
 }

@@ -1,3 +1,4 @@
+package jlooch;
 /* Speckle --- object to handle random purdy colored dots on the jlooch app
  *
  * 		Brad Garton, fall 2001

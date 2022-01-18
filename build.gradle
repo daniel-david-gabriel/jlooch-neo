@@ -1,4 +1,6 @@
-apply plugin: 'java'
+plugins {
+  id 'java'
+}
 
 task prep {
 	def f = new File('lib/jsyn_16_7_0.jar')
@@ -8,14 +10,15 @@ task prep {
 }
 
 dependencies {
-	compile files('lib/jsyn_16_7_0.jar')   
+	implementation files('lib/jsyn_16_7_0.jar')   
 }
 
 jar {
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest {
-        attributes 'Main-Class': 'jlooch'
+        attributes 'Main-Class': 'jlooch.swing.SwingLooch'
     }
 	from {
-		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+		configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 	}
 }

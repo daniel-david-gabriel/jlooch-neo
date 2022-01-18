@@ -1,3 +1,4 @@
+package jlooch;
 /* SeqNotes -- sequencer-like thing, shades of the olden days!
  * part of the jlooch app
  * 
@@ -278,15 +279,19 @@ class SeqThread extends Thread
 }
 
 
-public class SeqNotes extends Thread
+public class SeqNotes extends Thread implements SoundThread
 {
 	SeqThread notes1;
+	
+	Boolean isRunning = false;
 
 	public void start()  
 	{
 		try {
 			notes1 = new SeqThread();
 			notes1.start();
+			
+			isRunning = true;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -298,6 +303,8 @@ public class SeqNotes extends Thread
 		try
 		{
 			notes1.stopSound();
+			
+			isRunning = false;
 		} catch(SynthException e) {
 			SynthAlert.showError(e);
 		}
@@ -306,5 +313,9 @@ public class SeqNotes extends Thread
 	public void setProb(double p)
 	{
 		notes1.prob = p;
+	}
+
+	public Boolean isRunning() {
+		return isRunning;
 	}
 }

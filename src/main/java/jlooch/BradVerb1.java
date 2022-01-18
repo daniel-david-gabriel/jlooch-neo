@@ -1,3 +1,4 @@
+package jlooch;
 /*  really cheesy reverb done by cycling through some multitap
  *  delays, but what the heck -- it sounds ok in context
  *  used by the SeqNotes in the jlooch app
